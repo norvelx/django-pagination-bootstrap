@@ -1,3 +1,4 @@
+Forked from staticdev/django-pagination-bootstrap
 django-pagination-bootstrap
 ===============
 
