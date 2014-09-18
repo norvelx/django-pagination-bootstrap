@@ -91,10 +91,9 @@ class AutoPaginateNode(template.Node):
 
         try:
             page_obj = paginator.page(context['request'].page)
-        except InvalidPage, e:
+        except:
             if INVALID_PAGE_RAISES_404:
-                raise Http404('Invalid page requested.  If DEBUG were set to ' +
-                    'False, an HTTP 404 page would have been shown instead.')
+                raise Http404('Invalid page requested.  If DEBUG were set to ' + 'False, an HTTP 404 page would have been shown instead.')
 
             if INVALID_PAGE_FIXUP:
                 # if we're fixing up an invalid page in the request then we
@@ -244,7 +243,7 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
             else:
                 to_return['getvars'] = ''
         return to_return
-    except KeyError, AttributeError:
+    except:
         return {}
 
 # registers the tags paginate and paginate_bs2 the same function paginate
